@@ -1,7 +1,7 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
+import './globals.css'
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +11,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body >
+        <header>
+          <Link href="/">HOME</Link>
+          <Link href='/test'>Test</Link> {/* 라우터가 폴더를 가르키고 있음 즉 pages.js라는 파일이 열림 레이아웃 프레임 페이지가 레이아웃 프레임 안에 들어감 */}
+          <Link href="/js"> Js</Link>
+        </header>
+
+        <Context>
+        <main>
+        {children} {/* 컨텐츠 */}
+        </main>
+        </Context>
+        
+      </body>
     </html>
   )
 }
